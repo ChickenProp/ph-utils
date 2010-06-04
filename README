@@ -23,6 +23,8 @@ float ph::deg2rad (float deg)
 float ph::rad2deg (float rad)
   Converts radians to degrees.
 
+The components are accessed by the public x, y and (for ph::vec3f) z properties.
+
 ph::vec2f and ph::vec3f have the following methods defined:
 (Actually, some of these have only been defined for vec2f so far - I don't want
 to add them before I have a use for them, or I probably won't notice if I define
@@ -31,6 +33,9 @@ them wrong. But they won't be hard to add yourself.)
 Note that methods taking a vector argument can only take a vector of the same
 dimension. So you can't pass a ph::vec3f to a method defined on a ph::vec2f, or
 vice versa.
+
+Operators: +, -, *, /
+  Add or subtract another vector, or multiply or divide by a float.
 
 ph::vec?f normalize ()
   Returns a vector in the same direction, of unit length. Normalizing the zero
