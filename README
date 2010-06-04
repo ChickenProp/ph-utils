@@ -1,0 +1,79 @@
+Utilities that I use in C++. Currently the only interesting thing is
+vector.h. This contains classes ph::vec2f and ph::vec3f, which are respectively
+two- and three-dimensional vectors of floats. If SFML's vector classes have been
+included when these are compiled, you can cast to and from them, so in most
+cases these should be interchangeable with an sf::Vector3f. The advantage is
+that you can do physics-y things with them, not just
+add/subtract/multiply/divide. I intend to add similar casting for other vector
+libraries as I come across them.
+
+I recommend that you just copy this directory into your source directory, and
+#include "ph-utils/whatever.h", so that other people using your code don't have
+to fetch this as a dependency. Also it stops things breaking if I make a
+non-backwards compatible change.
+
+vector.h depends upon math-util.h. This provides the following functions:
+
+float ph::clampf (float x, float min, float max)
+  Clamps x to the range [min, max].
+
+float ph::deg2rad (float deg)
+  Converts degrees to radians.
+
+float ph::rad2deg (float rad)
+  Converts radians to degrees.
+
+ph::vec2f and ph::vec3f have the following methods defined:
+(Actually, some of these have only been defined for vec2f so far - I don't want
+to add them before I have a use for them, or I probably won't notice if I define
+them wrong. But they won't be hard to add yourself.)
+
+Note that methods taking a vector argument can only take a vector of the same
+dimension. So you can't pass a ph::vec3f to a method defined on a ph::vec2f, or
+vice versa.
+
+ph::vec?f normalize ()
+  Returns a vector in the same direction, of unit length. Normalizing the zero
+  vector returns the zero vector.
+
+float length ()
+float lengthSquared ()
+  Calculate the length (squared) of the vector.
+
+float distance (ph::vec?f vec)
+float distanceSquared (ph::vec?f vec)
+  Calculate the distance (squared) to vec.
+
+float dot (ph::vec?f vec)
+{float, ph::vec3f} cross (ph::vec?f vec)
+  Calculate the dot/cross product with vec. In the case of a two-dimensional
+  cross product, it treats both operands as three-dimensional vectors and takes
+  the z component of the result (the x and y coordinates are both 0).
+
+ph::vec?f project (ph::vec?f v1)
+ph::vec?f project (ph::vec?f v1,  ph::vec?f v2)
+  Project onto the line passing through v1 and v2, or v1 and the origin. Does
+  not clamp to the endpoints, so the result may not be on the line *segment*
+  between v1 and v2.
+
+ph::vec3f also has the following methods defined:
+
+ph::vec3f projectXY ()
+  Project onto the x-y plane.
+
+ph::vec3f theta ()
+  Return the angle between the vector and the x-y plane, in the range
+  [-pi/2, pi/2].
+
+ph::vec3f phi ()
+  Return the angle between the vector and the half-plane containing the z-axis
+  and the positive x-axis.
+
+static ph::vec3f spherical (float r, float phi, float theta)
+  Construct a ph::vec3f using spherical coordinates.
+
+LICENSE
+
+This was written by Philip Hazelden <philh.net>. You can do whatever you like
+with it. If we meet some day, and you think this stuff is worth it, you can buy
+me a beer in return.
