@@ -1,11 +1,15 @@
+ph-utils, version 2010.06.05
+
+The latest version can be found at <http://github.com/ChickenProp/ph-utils>.
+
 Utilities that I use in C++. Currently the only interesting thing is
 vector.h. This contains classes ph::vec2f and ph::vec3f, which are respectively
 two- and three-dimensional vectors of floats. If SFML's vector classes have been
 included when these are compiled, you can cast to and from them, so in most
 cases these should be interchangeable with an sf::Vector3f. The advantage is
-that you can do physics-y things with them, not just
-add/subtract/multiply/divide. I intend to add similar casting for other vector
-libraries as I come across them.
+that you can do physics-y things with them, not just add / subtract / multiply /
+divide. I intend to add similar casting for other vector libraries as I come
+across them.
 
 I recommend that you just copy this directory into your source directory, and
 #include "ph-utils/whatever.h", so that other people using your code don't have
