@@ -1,4 +1,4 @@
-ph-utils, version 2010.06.05
+ph-utils, version 2010.06.07
 
 The latest version can be found at <http://github.com/ChickenProp/ph-utils>.
 
@@ -26,6 +26,12 @@ float ph::deg2rad (float deg)
 
 float ph::rad2deg (float rad)
   Converts radians to degrees.
+
+T min (T a, T b)
+T max (T a, T b)
+T min3 (T a, T b, T c)
+T max3 (T a, T b, T c)
+  Find the {minimum, maximum} of {two, three} numbers. Templated.
 
 The components are accessed by the public x, y and (for ph::vec3f) z properties.
 

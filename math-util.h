@@ -17,6 +17,28 @@ inline float rad2deg (float r) {
 	return r * 180.0 / M_PI;
 }
 
+template <typename T>
+T min (T a, T b) {
+	return a < b ? a : b;
+}
+
+template <typename T>
+T max (T a, T b) {
+	return a > b ? a : b;
+}
+
+template <typename T>
+T min3 (T a, T b, T c) {
+	return min(a, min(b, c));
+}
+
+template <typename T>
+T max3 (T a, T b, T c) {
+	return max(a, max(b, c));
+}
+
+
+
 }
 
 #endif
