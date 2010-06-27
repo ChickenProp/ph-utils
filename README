@@ -71,6 +71,10 @@ ph::vec?f project (ph::vec?f v1,  ph::vec?f v2)
   not clamp to the endpoints, so the result may not be on the line *segment*
   between v1 and v2.
 
+ph::vec?f intersect (ph::vec?f x1, ph::vec?f x2, ph::vec?f x3, ph::vec?f x4)
+  Calculate the point of intersection between the lines L1, containing x1 and
+  x2, and L2, containing x3 and x4.
+
 ph::vec3f also has the following methods defined:
 
 ph::vec3f projectXY ()

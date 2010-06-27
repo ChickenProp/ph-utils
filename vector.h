@@ -49,6 +49,24 @@ public:
 		return u + (*this - u).project(v - u);
 	}
 
+	// Returns the point of intersection of the lines l1 passing through x1
+	// and x2, and l2 passing through x3 and x4.
+
+	// See http://mathworld.wolfram.com/Line-LineIntersection.html
+	// Remember that "cross" in R^2 gives a float, and "dot" with floats is
+	// just multiplication.
+
+	static vec2f intersect(const vec2f &x1, const vec2f &x2,
+	                       const vec2f &x3, const vec2f &x4)
+	{
+		vec2f a = x2 - x1;
+		vec2f b = x4 - x3;
+		vec2f c = x3 - x1;
+
+		float den = a.cross(b);
+		return x1 + a * c.cross(b) * a.cross(b) / (den*den);
+	}
+
 	vec2f operator+ (const vec2f &v) const {
 		return vec2f(x + v.x, y + v.y);
 	}
