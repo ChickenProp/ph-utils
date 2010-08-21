@@ -21,6 +21,10 @@ public:
 		return sqrt(x*x + y*y);
 	}
 
+	float angle () const {
+		return rad2deg(atan2(y, x));
+	}
+
 	float distanceSquared (const vec2f &v) const {
 		return (*this - v).lengthSquared();
 	}
