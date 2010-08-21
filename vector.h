@@ -14,6 +14,10 @@ public:
 	vec2f() : x(0.f), y(0.f) {}
 	vec2f(const float _x, const float _y) : x(_x), y(_y) {}
 
+	static vec2f polar (float r, float theta) {
+		return ph::vec2f(r*cos(deg2rad(theta)), r*sin(deg2rad(theta)));
+	}
+
 	float lengthSquared () const {
 		return x*x + y*y;
 	}

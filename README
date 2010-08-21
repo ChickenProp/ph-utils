@@ -77,11 +77,14 @@ ph::vec?f intersect (ph::vec?f x1, ph::vec?f x2, ph::vec?f x3, ph::vec?f x4)
 
 The following methods are defined on one or the other:
 
-ph::vec3f projectXY ()
-  Project onto the x-y plane.
-
 ph::vec2f angle ()
   Return the angle between the vector and the positive x-axis.
+
+static ph::vec2f polar (float r, float theta)
+  Construct a ph::vec2f using polar coordinates.
+
+ph::vec3f projectXY ()
+  Project onto the x-y plane.
 
 ph::vec3f theta ()
   Return the angle between the vector and the x-y plane, in the range
