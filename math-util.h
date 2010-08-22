@@ -2,6 +2,7 @@
 #define PH_MATH_UTIL_H
 
 #include "math.h"
+#include <cstdlib>
 
 namespace ph {
 
@@ -15,6 +16,14 @@ inline float deg2rad (float d) {
 
 inline float rad2deg (float r) {
 	return r * 180.0 / M_PI;
+}
+
+inline float randf (float sup) {
+	return sup * rand()/((double)RAND_MAX + 1);
+}
+
+inline float randi (int sup) {
+	return (int) randf(sup);
 }
 
 template <typename T>

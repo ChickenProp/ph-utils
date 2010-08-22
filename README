@@ -19,13 +19,19 @@ non-backwards compatible change.
 vector.h depends upon math-util.h. This provides the following functions:
 
 float ph::clampf (float x, float min, float max)
-  Clamps x to the range [min, max].
+  Clamp x to the range [min, max].
 
 float ph::deg2rad (float deg)
-  Converts degrees to radians.
+  Convert degrees to radians.
 
 float ph::rad2deg (float rad)
-  Converts radians to degrees.
+  Convert radians to degrees.
+
+int randi (int sup)
+  Get a random integer uniformly distributed on {0, 1, ..., sup-1}.
+
+float randf (float sup)
+  Get a random float uniformly distributed on [0, sup).
 
 T min (T a, T b)
 T max (T a, T b)
